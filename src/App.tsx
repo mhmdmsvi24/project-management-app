@@ -1,17 +1,19 @@
 import "./App.css";
 
-import Navbar from "./components/navigation/Navbar";
+import Main from "./components/custom/Main";
+import Navbar from "./components/custom/Navbar";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+
+/* Tasks:
+1. add ref's to inputs in projectView component to be able to complete the project data
+
+*/
 
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div className="bg-background">
-        {/* Navbar */}
-        <Navbar />
-        {/* Main */}
-        <div className="container mx-auto">Hello main</div>
-      </div>
+      <Navbar />
+      <Main />
     </ThemeProvider>
   );
 }

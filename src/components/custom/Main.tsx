@@ -1,31 +1,20 @@
 import EmptyProjectView from "./EmptyProjectView";
+import { ProjectContext } from "@/context/ProjectProviderContext";
 import ProjectView from "./ProjectView";
 import Sidebar from "./Sidebar";
-import { giveId } from "@/lib/utils";
-import { useState } from "react";
+import { useContext } from "react";
 
 const Main = () => {
-  const [projects, setProjects] = useState({
-    currentProject: null,
-    activeProjects: [
-      { title: "Front End", desc: "loremasdjf;asdfj;lask", id: giveId() },
-      { title: "BackEnd", desc: "loremasdj", id: giveId() },
-    ],
-  });
+  const { currentProject, activeProjects } = useContext(ProjectContext);
+
+  const projectViewProj =
+    currentProject !== null ? activeProjects.find((proj) => proj.id === currentProject) : null;
 
   return (
     <main className="flex justify-between h-svh">
-      <Sidebar projects={projects.activeProjects} setProject={setProjects} />
+      <Sidebar />
       <div className="w-full h-full py-3 px-8">
-        {projects.currentProject ? (
-          <ProjectView
-            activeProject={projects.activeProjects.filter(
-              (proj) => proj.id === projects.currentProject
-            )}
-          />
-        ) : (
-          <EmptyProjectView />
-        )}
+        {projectViewProj ? <ProjectView project={projectViewProj} /> : <EmptyProjectView />}
       </div>
     </main>
   );

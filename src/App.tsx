@@ -2,6 +2,7 @@ import "./App.css";
 
 import Main from "./components/custom/Main";
 import Navbar from "./components/custom/Navbar";
+import ProjectContextProvider from "./context/ProjectProviderContext";
 import { ThemeProvider } from "@/providers/themeToggle/theme-provider.tsx";
 
 /* Tasks:
@@ -12,8 +13,10 @@ import { ThemeProvider } from "@/providers/themeToggle/theme-provider.tsx";
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <Navbar />
-      <Main />
+      <ProjectContextProvider>
+        <Navbar />
+        <Main />
+      </ProjectContextProvider>
     </ThemeProvider>
   );
 }

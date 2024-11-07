@@ -2,8 +2,8 @@ import { DatePicker } from "../ui/datePicker";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 
-const ProjectView = ({ activeProject }) => {
-  console.log("Active:", activeProject[0]);
+const ProjectView = ({ project }) => {
+  console.log(project);
 
   return (
     <section>

@@ -8,13 +8,19 @@ const Main = () => {
   const { currentProject, activeProjects } = useContext(ProjectContext);
 
   const projectViewProj =
-    currentProject !== null ? activeProjects.find((proj) => proj.id === currentProject) : null;
+    currentProject !== null
+      ? activeProjects.find((proj) => proj.id === currentProject)
+      : null;
 
   return (
     <main className="flex justify-between h-svh">
       <Sidebar />
-      <div className="w-full h-full py-3 px-8">
-        {projectViewProj ? <ProjectView project={projectViewProj} /> : <EmptyProjectView />}
+      <div className="w-full h-full">
+        {projectViewProj ? (
+          <ProjectView project={projectViewProj} />
+        ) : (
+          <EmptyProjectView />
+        )}
       </div>
     </main>
   );

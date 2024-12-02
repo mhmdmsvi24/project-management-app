@@ -1,31 +1,36 @@
+import { Button } from "../ui/button";
 import { DatePicker } from "../ui/datePicker";
 import { Input } from "../ui/input";
+import { Project } from "@/types/project";
 import { Textarea } from "../ui/textarea";
 
-const ProjectView = ({ project }) => {
-  console.log(project);
-
+const ProjectView = ({ project }: { project: Project }) => {
   return (
-    <section>
-      <div>
-        <div>Project Title</div>
+    <form className="flex flex-col justify-between h-[calc(100svh_-_4rem)] p-3">
+      <div className="space-y-3 *:space-y-1">
         <div>
-          <Input />
+          <div>Project Title</div>
+          <div>
+            <Input defaultValue={project.title} />
+          </div>
+        </div>
+        <div>
+          <div>Project Description</div>
+          <div>
+            <Textarea defaultValue={project.desc} />
+          </div>
+        </div>
+        <div>
+          <div>Project Deadline</div>
+          <div>
+            <DatePicker />
+          </div>
         </div>
       </div>
-      <div>
-        <div>Project Description</div>
-        <div>
-          <Textarea />
-        </div>
+      <div className="ml-auto">
+        <Button variant="secondary">Save Changes</Button>
       </div>
-      <div>
-        <div>Project Deadline</div>
-        <div>
-          <DatePicker />
-        </div>
-      </div>
-    </section>
+    </form>
   );
 };
 

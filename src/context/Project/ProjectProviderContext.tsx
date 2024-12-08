@@ -1,37 +1,18 @@
-import React, { ReactNode, createContext, useReducer, useRef } from "react";
+import { ReactNode, useReducer, useRef } from "react";
 
 import { Project } from "@/types/project";
+import { ProjectContext } from "@/context/Project/context";
 import { giveId } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 
-// Define action types
 type Action =
   | { type: "ADD_PROJECT"; title: string }
   | { type: "SET_ACTIVE_PROJECT"; id: number };
 
-// Define the initial state type
 interface ProjectState {
   currentProject: number | null;
   activeProjects: Project[];
 }
-
-// Define the context type
-interface ProjectContextType {
-  currentProject: number | null;
-  activeProjects: Project[];
-  addNewProject: () => void;
-  sidebarInputRef: React.RefObject<HTMLInputElement>;
-  setActiveProject: (id: number) => void;
-}
-
-// Create the context with default values
-export const ProjectContext = createContext<ProjectContextType>({
-  currentProject: null,
-  activeProjects: [],
-  addNewProject: () => {},
-  sidebarInputRef: React.createRef(),
-  setActiveProject: () => {},
-});
 
 // Define the reducer function
 function projectReducer(state: ProjectState, action: Action): ProjectState {
@@ -54,7 +35,6 @@ function projectReducer(state: ProjectState, action: Action): ProjectState {
   }
 }
 
-// Define the provider component
 export default function ProjectContextProvider({
   children,
 }: {
@@ -91,7 +71,6 @@ export default function ProjectContextProvider({
     }
   }
 
-  // Function to set the active project
   function handleSetActiveProject(id: number) {
     projectDispatch({ type: "SET_ACTIVE_PROJECT", id });
   }

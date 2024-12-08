@@ -1,4 +1,4 @@
-import { ProjectContext } from "@/context/ProjectProviderContext";
+import { ProjectContext } from "@/context/Project/context";
 import SidebarInput from "./SidebarInput";
 import { useContext } from "react";
 
@@ -15,7 +15,7 @@ const Sidebar = () => {
         <ul className="flex flex-col gap-2 list-decimal list-inside">
           {activeProjects.map((proj, ind) => (
             <li
-              className="list-none bg-secondary px-2 py-3 rounded-md hover:bg-secondary/85 cursor-pointer"
+              className="px-2 py-3 list-none rounded-md cursor-pointer bg-secondary hover:bg-secondary/85"
               key={`${proj.title}-${ind}`}
               onClick={() => setActiveProject(proj.id)}
             >

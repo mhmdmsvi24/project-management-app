@@ -1,6 +1,6 @@
 import { Input } from "../ui/input";
 import { Plus } from "lucide-react";
-import { ProjectContext } from "@/context/ProjectProviderContext";
+import { ProjectContext } from "@/context/Project/context";
 import { useContext } from "react";
 
 const SidebarInput = () => {

@@ -1,5 +1,5 @@
 import EmptyProjectView from "./EmptyProjectView";
-import { ProjectContext } from "@/context/ProjectProviderContext";
+import { ProjectContext } from "@/context/Project/context";
 import ProjectView from "./ProjectView";
 import Sidebar from "./Sidebar";
 import { useContext } from "react";

@@ -2,7 +2,7 @@ import "./App.css";
 
 import Main from "./components/custom/Main";
 import Navbar from "./components/custom/Navbar";
-import ProjectContextProvider from "./context/ProjectProviderContext";
+import ProjectContextProvider from "./context/Project/ProjectProviderContext";
 import { ThemeProvider } from "@/providers/themeToggle/theme-provider.tsx";
 import { Toaster } from "./components/ui/toaster";
 
